@@ -2,28 +2,34 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carta</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     body {
-      background: #f0bdbc;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       font-family: 'Segoe UI', sans-serif;
+      margin: 0;
     }
 
     .envelope {
       position: relative;
-      width: 300px;
-      height: 200px;
+      width: 90%;
+      max-width: 400px;
       background: #fff;
-      border: 2px solid #db7571;
+      border: 2px solid #ecacaa;
       border-radius: 6px;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       overflow: hidden;
       perspective: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .flap {
@@ -31,25 +37,30 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100px;
+      height: auto;
       z-index: 3;
       transform-origin: top center;
       transition: transform 0.6s ease;
       background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
+    /* Triángulo ajustado y visible */
     .triangle {
       width: 0;
       height: 0;
-      border-left: 150px solid transparent;
-      border-right: 150px solid transparent;
-      border-top: 100px solid #db7571;;
+      border-left: 200px solid transparent;
+      border-right: 200px solid transparent;
+      border-top: 165px solid #ecacaa;
       margin: 0 auto;
     }
 
+    /* Sello en la punta del triángulo */
     .seal {
       position: absolute;
-      top: 70px;
+      bottom: -25px; /* Ajuste en la parte inferior */
       left: 50%;
       transform: translateX(-50%);
       width: 50px;
@@ -57,18 +68,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 35px;
+      font-size: 40px;
       color: #fff;
       font-weight: bold;
       z-index: 4;
     }
 
     .content {
-      position: absolute;
+      position: relative;
       top: 15px;
       left: 0;
       width: 100%;
-      height: 100px;
+      max-width: 350px; /* Limite de ancho */
       padding: 20px;
       box-sizing: border-box;
       font-size: medium;
@@ -78,22 +89,21 @@
       opacity: 0;
       z-index: 1;
       transition: opacity 0.6s ease 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; /* Asegura que el contenido se alinee de arriba hacia abajo */
+      align-items: center;
+      overflow-y: auto; /* Permite desplazamiento si el contenido es muy largo */
+      max-height: 400px; /* Limite de altura para la carta */
+      word-wrap: break-word; /* Asegura que el texto se ajuste automáticamente */
+      hyphens: auto; /* Añade guiones si es necesario para romper palabras largas */
     }
 
-    .emoji {
-      font-size: 60px;
-      margin-bottom: 10px;
-      animation: bounce 1s infinite;
-      display: inline-block;
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+    /* Imagen en lugar del emoji */
+    .image {
+      width: 200px; /* Ajusta el tamaño de la imagen */
+      height: auto;
+      margin-top: 10px;
     }
 
     .envelope.open .flap {
@@ -104,32 +114,55 @@
     .envelope.open .content {
       opacity: 1;
     }
+
+    /* Media Queries para Responsividad */
+    @media (max-width: 600px) {
+      .seal {
+        font-size: 28px;
+      }
+
+      /* Ajuste del triángulo en pantallas pequeñas */
+      .triangle {
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        border-top: 60px solid #ecacaa;
+      }
+
+      .content {
+        font-size: small;
+        padding: 15px;
+        max-width: 320px; /* Ancho máximo más pequeño en pantallas pequeñas */
+        max-height: 250px; /* Altura máxima más pequeña en pantallas pequeñas */
+      }
+
+      .envelope {
+        width: 80%;
+        max-width: 350px;
+      }
+    }
   </style>
 </head>
-<body>
+<body class="bg-pink-100 text-gray-800">
 
   <div class="envelope" onclick="abrirCarta()">
     <div class="flap">
-      <div class="seal">❤️</div>
+      <div class="seal">💗</div>
       <div class="triangle"></div>
     </div>
     <div class="content">
-      <div class="message">Una flor para otra flor jsjs</div>
-    </br></br>
-      <div class="emoji">🌷</div>
+      <div class="message">Una flor para otra flor jsjs. Este es un texto largo que debería ajustarse al contenido de la carta sin desbordarse fuera de los límites.</div>
+      <br>
+      <!-- Reemplazamos el emoji con una imagen -->
+      <img src="imagenes/extra.jpg" alt="Imagen" class="image" />
+      <br>
+      <br>
     </div>
   </div>
-
-  <audio id="openSound" src="papel.mp3"></audio>
 
   <script>
     function abrirCarta() {
       const envelope = document.querySelector('.envelope');
-      const sound = document.getElementById('openSound');
       envelope.classList.toggle('open');
-      if (envelope.classList.contains('open')) {
-        sound.play();
-      }
     }
   </script>
 
