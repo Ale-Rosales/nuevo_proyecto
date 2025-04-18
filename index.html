@@ -8,7 +8,20 @@
   <style>
 
     .lightbox-bg {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    #ver_mas {
+      font-size: 13px;
+      font-style: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fc8985;
     }
 
   </style>
@@ -21,109 +34,153 @@
     <p class="text-gray-500">Entre todos los lugares del mundo, yo elijo donde esté tu sonrisa 💖</p>
   </header>
 
+  <!-- Pestañas -->
+  <div class="flex justify-center mt-6 space-x-4">
+    <button class="tab-btn px-4 py-2 bg-gray-100 rounded shadow hover:bg-blue-100" onclick="showTab('tab-fotos')">Fotos</button>
+    <button class="tab-btn px-4 py-2 bg-gray-100 rounded shadow hover:bg-blue-100" onclick="showTab('tab-videos')">Videos</button>
+  </div>
+
   <main class="p-4 max-w-7xl mx-auto">
-    <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+    <!-- FOTOS -->
+    <div id="tab-fotos" class="tab-content">
+      <div id="gallery" class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6">
+       
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/1.jpg" alt="Imagen 1" class="w-full h-auto object-cover" onclick="openLightbox(0)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/2.jpg" alt="Imagen 2" class="w-full h-auto object-cover" onclick="openLightbox(1)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/3.jpg" alt="Imagen 3" class="w-full h-auto object-cover" onclick="openLightbox(2)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/4.jpg" alt="Imagen 4" class="w-full h-auto object-cover" onclick="openLightbox(3)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/5.jpg" alt="Imagen 5" class="w-full h-auto object-cover" onclick="openLightbox(4)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/6.jpg" alt="Imagen 6" class="w-full h-auto object-cover" onclick="openLightbox(5)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/7.jpg" alt="Imagen 7" class="w-full h-auto object-cover" onclick="openLightbox(6)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/8.jpg" alt="Imagen 8" class="w-full h-auto object-cover" onclick="openLightbox(7)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/9.jpg" alt="Imagen 9" class="w-full h-auto object-cover" onclick="openLightbox(8)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/10.jpg" alt="Imagen 10" class="w-full h-auto object-cover" onclick="openLightbox(9)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/11.jpg" alt="Imagen 11" class="w-full h-auto object-cover" onclick="openLightbox(10)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/12.jpg" alt="Imagen 12" class="w-full h-auto object-cover" onclick="openLightbox(11)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/13.jpg" alt="Imagen 13" class="w-full h-auto object-cover" onclick="openLightbox(12)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/14.jpg" alt="Imagen 14" class="w-full h-auto object-cover" onclick="openLightbox(13)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/15.jpg" alt="Imagen 15" class="w-full h-auto object-cover" onclick="openLightbox(14)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/16.jpg" alt="Imagen 16" class="w-full h-auto object-cover" onclick="openLightbox(15)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/17.jpg" alt="Imagen 17" class="w-full h-auto object-cover" onclick="openLightbox(16)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/18.jpg" alt="Imagen 18" class="w-full h-auto object-cover" onclick="openLightbox(17)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/19.jpg" alt="Imagen 19" class="w-full h-auto object-cover" onclick="openLightbox(18)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/20.jpg" alt="Imagen 20" class="w-full h-auto object-cover" onclick="openLightbox(19)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/21.jpg" alt="Imagen 21" class="w-full h-auto object-cover" onclick="openLightbox(20)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/22.jpg" alt="Imagen 22" class="w-full h-auto object-cover" onclick="openLightbox(21)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/23.jpg" alt="Imagen 23" class="w-full h-auto object-cover" onclick="openLightbox(22)">
+        </div>
+  
+        <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+          <img src="imagenes/24.jpg" alt="Imagen 24" class="w-full h-auto object-cover" onclick="openLightbox(23)">
+        </div>
       
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/1.jpg" alt="Imagen 1" data-index="0" class="w-full h-auto object-cover lightbox-thumb">
       </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/2.jpg" alt="Imagen 2" data-index="1" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/3.jpg" alt="Imagen 3" data-index="2" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/4.jpg" alt="Imagen 4" data-index="3" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/5.jpg" alt="Imagen 5" data-index="4" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/6.jpg" alt="Imagen 6" data-index="5" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/7.jpg" alt="Imagen 7" data-index="6" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/8.jpg" alt="Imagen 8" data-index="7" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/9.jpg" alt="Imagen 9" data-index="8" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/10.jpg" alt="Imagen 10" data-index="9" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/11.jpg" alt="Imagen 11" data-index="10" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/12.jpg" alt="Imagen 12" data-index="11" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/13.jpg" alt="Imagen 13" data-index="12" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/14.jpg" alt="Imagen 14" data-index="13" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/15.jpg" alt="Imagen 15" data-index="14" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/16.jpg" alt="Imagen 16" data-index="15" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/17.jpg" alt="Imagen 17" data-index="16" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/18.jpg" alt="Imagen 18" data-index="17" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/19.jpg" alt="Imagen 19" data-index="18" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/20.jpg" alt="Imagen 20" data-index="19" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/21.jpg" alt="Imagen 21" data-index="20" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/22.jpg" alt="Imagen 22" data-index="21" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/23.jpg" alt="Imagen 23" data-index="22" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
-        <img src="imagenes/24.jpg" alt="Imagen 24" data-index="23" class="w-full h-auto object-cover lightbox-thumb">
-      </div>
-
-
-
     </div>
+
+    <!-- VIDEOS -->
+    <div id="tab-videos" class="tab-content mt-6">
+      <div class="grid gap-4 grid-cols-1 sm:grid-cols-2">
+
+        <video class="w-full rounded shadow" controls muted>
+          <source src="videos/1.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+
+        <video class="w-full rounded shadow" controls muted>
+          <source src="videos/2.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+
+        <video class="w-full rounded shadow" controls muted>
+          <source src="videos/3.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+
+        <video class="w-full rounded shadow" controls muted>
+          <source src="videos/4.mp4" type="video/mp4">
+          Tu navegador no soporta el video.
+        </video>
+
+      </div>
+    </div>
+
   </main>
+
+  <footer class="text-center py-6 text-sm text-gray-500">
+    <a href="apertura.html" target="_blank" class="text-blue-500 hover:underline">
+    <p id="ver_mas">¿Quieres ver más? ¡Claro, aún hay más! <br>
+      Haz clic aquí, jsjs 😅
+    </p>
+    </a>
+  </footer>
 
   <div id="lightbox" class="fixed inset-0 hidden items-center justify-center z-50 lightbox-bg">
     <div class="relative max-w-4xl w-full px-4">
@@ -135,8 +192,7 @@
   <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
 
   <script>
-    const thumbnails = document.querySelectorAll('.lightbox-thumb');
-    const images = Array.from(thumbnails).map(img => img.src);
+    const images = Array.from(document.querySelectorAll('#gallery img')).map(img => img.src);
     let currentIndex = 0;
 
     function openLightbox(index) {
@@ -155,9 +211,10 @@
     }
 
     function showImage(index) {
+      const lightboxImg = document.getElementById('lightbox-img');
       if (index >= 0 && index < images.length) {
         currentIndex = index;
-        document.getElementById('lightbox-img').src = images[currentIndex];
+        lightboxImg.src = images[currentIndex];
       }
     }
 
@@ -171,24 +228,18 @@
       showImage(currentIndex);
     }
 
-    // Listeners
-    thumbnails.forEach(thumb => {
-      thumb.addEventListener('click', (e) => {
-        const index = parseInt(e.target.dataset.index);
-        openLightbox(index);
-      });
+    
+    document.getElementById('lightbox').addEventListener('click', function (e) {
+      if (e.target.id === 'lightbox') {
+        closeLightbox();
+      }
     });
 
-    document.getElementById('lightbox').addEventListener('click', (e) => {
-      if (e.target.id === 'lightbox') closeLightbox();
-    });
-
-    // Swipe
-    const hammertime = new Hammer(document.getElementById('lightbox'));
+    const hammerArea = document.getElementById('lightbox');
+    const hammertime = new Hammer(hammerArea);
     hammertime.on('swipeleft', nextImage);
     hammertime.on('swiperight', prevImage);
 
-    // Teclado
     document.addEventListener('keydown', (e) => {
       if (document.getElementById('lightbox').classList.contains('flex')) {
         if (e.key === 'ArrowRight') nextImage();
@@ -196,6 +247,11 @@
         if (e.key === 'Escape') closeLightbox();
       }
     });
+
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
   </script>
 
 </body>
