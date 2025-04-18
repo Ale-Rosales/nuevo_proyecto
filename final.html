@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reto Divertido</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    button {
+      font-size: 1.25rem; 
+      padding: 0.75em;
+      background: white;
+      color: black;
+      transition: all 0.15s ease;
+    }
+
+    button:hover {
+      background: #ecacaa;
+      color: white;
+    }
+
+    #yesBtn {
+      transform: translate(-100%, 0);
+      width: 90px;
+      height: 85px;
+      border-radius: 850px;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.1);
+      background-color: #fca5a5;
+      color: white;
+    }
+
+    #noBtn {
+      position: fixed;
+      width: 90px;
+      height: 85px;
+      border-radius: 850px;
+      transition: top 0.1s ease, left 0.1s ease, transform 0.1s ease;
+      cursor: not-allowed;
+      z-index: 50;
+    }
+  </style>
+
+</head>
+
+<body class="bg-pink-100 text-gray-800 flex flex-col min-h-screen">
+
+
+  <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-2xl shadow-lg p-6 text-center max-w-sm w-full mx-4">
+      <h3 class="text-xl font-semibold mb-4">Yo sabía que aún lo hacías 🥺</h3>
+      <p class="mb-6">Si me lo dices, yo la verdad no me enojo, ¡JAJAJA! Pero ya en serio, gracias por darle en sí  💖</p>
+      <button onclick="cerrarPopup()" class="bg-pink-300 text-white px-4 py-2 rounded-full hover:bg-pink-400 transition">Cerrar</button>
+    </div>
+  </div>
+
+  <header class="text-center py-6 px-4 bg-gray-50 shadow">
+    <h1 class="text-3xl md:text-3xl font-bold">Reto</h1>
+    <span style="display:block; height:0.5em;"></span>
+    <p class="text-gray-500 text-base md:text-lg mt-2">¿Lista para lo último? 💞</p>
+  </header>
+
+  <main class="flex-grow flex items-center justify-center px-4 py-8">
+    <div class="relative text-center bg-white shadow-lg rounded-3xl p-6 sm:p-10 w-full max-w-2xl">
+      <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6">¿Podemos hacer llamada hoy?</h2>
+      <div class="flex justify-center gap-6 flex-wrap relative">
+        <button class = "font-semibold" onclick="mostrarPopup()" id="yesBtn">Sí</button>
+        <button class = "font-semibold" id="noBtn">No</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="w-full text-center py-4 bg-pink-200 text-gray-500 text-sm">
+    <p class="text-sm">Ya no hay más, se acabó. Pero mi amor por ti no tiene fin 🥰</p>
+  </footer>
+
+  <audio id="boingSound" src="boing.mp3"></audio>
+
+  <script>
+    const yesBtn = document.querySelector('#yesBtn');
+    const noBtn = document.querySelector('#noBtn');
+
+    const sound = document.getElementById('boingSound');
+    sound.currentTime = 0; // Reinicia por si se repite rápido
+    sound.play();
+
+    function mostrarPopup() {
+      document.getElementById('popup').classList.remove('hidden');
+    }
+
+    function cerrarPopup() {
+      document.getElementById('popup').classList.add('hidden');
+    }
+
+    noBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    noBtn.addEventListener('mouseover', function () {
+      const vw = window.innerWidth - 100;
+      const vh = window.innerHeight - 100;
+      const randomX = Math.floor(Math.random() * vw);
+      const randomY = Math.floor(Math.random() * vh);
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+    });
+
+    window.addEventListener('load', () => {
+      noBtn.style.left = `50%`;
+      noBtn.style.top = `65%`;
+      noBtn.style.transform = `translate(-50%, -50%)`;
+    });
+  </script>
+
+
+</body>
+</html>
