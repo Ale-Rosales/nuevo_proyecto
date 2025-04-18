@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería de Recuerdos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+    .lightbox-bg {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+  </style>
+</head>
+
+<body class="bg-pink-100 text-gray-800">
+
+  <header class="text-center py-6 bg-gray-100 shadow">
+    <h1 class="text-3xl font-bold">Galería</h1>
+    <p class="text-gray-500">Entre todos los lugares del mundo, yo elijo donde esté tu sonrisa. 🥹💖</p>
+  </header>
+
+  <main class="p-4 max-w-7xl mx-auto">
+    <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      
+      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+        <img src="ColorWall.png" alt="Imagen 1" class="w-full h-auto object-cover" onclick="openLightbox(this)">
+      </div>
+
+      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+        <img src="ColorWall2.jpg"Imagen 2" class="w-full h-auto object-cover" onclick="openLightbox(this)">
+      </div>
+
+      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+        <img src="ColorWall3.png" alt="Imagen 3" class="w-full h-auto object-cover" onclick="openLightbox(this)">
+      </div>
+
+      <div class="overflow-hidden rounded-lg shadow hover:shadow-lg transition cursor-pointer">
+        <img src="Captura.png" alt="Imagen 4" class="w-full h-auto object-cover" onclick="openLightbox(this)">
+      </div>
+
+
+
+    </div>
+  </main>
+
+  <div id="lightbox" class="fixed inset-0 hidden items-center justify-center z-50 lightbox-bg">
+    <div class="relative max-w-4xl w-full px-4">
+      <button onclick="closeLightbox()" class="absolute top-2 right-4 text-white text-3xl font-bold hover:text-red-400 z-10">✖</button>
+      <img id="lightbox-img" src="" alt="Vista ampliada" class="mx-auto max-h-[90vh] w-auto rounded-lg shadow-lg">
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('flex');
+      lightbox.classList.add('hidden');
+    }
+
+    document.getElementById('lightbox').addEventListener('click', function (e) {
+      if (e.target.id === 'lightbox') closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
