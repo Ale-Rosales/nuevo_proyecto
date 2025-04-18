@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta</title>
+  <style>
+    body {
+      background: #f0bdbc;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .envelope {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      background: #fff;
+      border: 2px solid #db7571;
+      border-radius: 6px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      overflow: hidden;
+      perspective: 1000px;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      z-index: 3;
+      transform-origin: top center;
+      transition: transform 0.6s ease;
+      background: transparent;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      border-top: 100px solid #db7571;;
+      margin: 0 auto;
+    }
+
+    .seal {
+      position: absolute;
+      top: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 35px;
+      color: #fff;
+      font-weight: bold;
+      z-index: 4;
+    }
+
+    .content {
+      position: absolute;
+      top: 15px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      padding: 20px;
+      box-sizing: border-box;
+      font-size: medium;
+      font-weight: bold;
+      text-align: center;
+      background: #fffdf8;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.6s ease 0.3s;
+    }
+
+    .emoji {
+      font-size: 60px;
+      margin-bottom: 10px;
+      animation: bounce 1s infinite;
+      display: inline-block;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(-180deg);
+      z-index: 0;
+    }
+
+    .envelope.open .content {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="envelope" onclick="abrirCarta()">
+    <div class="flap">
+      <div class="seal">❤️</div>
+      <div class="triangle"></div>
+    </div>
+    <div class="content">
+      <div class="message">Una flor para otra flor jsjs</div>
+    </br></br>
+      <div class="emoji">🌷</div>
+    </div>
+  </div>
+
+  <audio id="openSound" src="papel.mp3"></audio>
+
+  <script>
+    function abrirCarta() {
+      const envelope = document.querySelector('.envelope');
+      const sound = document.getElementById('openSound');
+      envelope.classList.toggle('open');
+      if (envelope.classList.contains('open')) {
+        sound.play();
+      }
+    }
+  </script>
+
+</body>
+</html>
