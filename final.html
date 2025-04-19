@@ -14,45 +14,25 @@
       color: black;
       transition: all 0.15s ease;
     }
-
+  
     button:hover {
       background: #ecacaa;
       color: white;
     }
-
-    #yesBtn {
-      transform: translate(-100%, 0);
+  
+    #yesBtn, #noBtn {
       width: 90px;
       height: 85px;
       border-radius: 850px;
     }
-
-    #noBtn {
-      position: fixed;
-      width: auto;
-      height: auto;
-      padding: 0.3em 0.8em;
-      background: none;
-      color: black;
-      border: none;
-      font-size: 1.25rem;
-      font-weight: 600;
-      cursor: not-allowed;
-      transition: none;
-      z-index: 50;
-    }
-
-    #noBtn:hover {
-      background: none;
-      color: black;
-    }
   </style>
+  
 
 </head>
 
 <body class="bg-pink-100 text-gray-800 flex flex-col min-h-screen">
 
-
+  <!-- POPUP "SÍ" -->
   <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
     <div class="bg-white rounded-2xl shadow-lg p-6 text-center max-w-sm w-full mx-4">
       <h3 class="text-xl font-semibold mb-4">Yo sabía que aún lo hacías 🥺</h3>
@@ -61,21 +41,37 @@
     </div>
   </div>
 
+  <!-- POPUP "NO" -->
+  <div id="popupNo" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-2xl shadow-lg p-6 text-center max-w-sm w-full mx-4">
+      <h3 class="text-xl font-semibold mb-4">¿En serio, no? ¿Nadita, nada de nada? 😢</h3>
+      
+      <div class="w-full aspect-video rounded-lg overflow-hidden mb-4">
+        <video id="videoNo" class="w-full h-full object-cover" controls playsinline>
+          <source src="triste.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de video.
+        </video>
+      </div>
+      
+      <button onclick="cerrarPopupNo()" class="bg-pink-300 text-white px-4 py-2 rounded-full hover:bg-pink-400 transition">Cerrar</button>
+    </div>
+  </div>
+
   <header class="text-center py-6 px-4 bg-gray-50 shadow">
     <h1 class="text-3xl md:text-3xl font-bold">Reto</h1>
     <span style="display:block; height:0.5em;"></span>
     <p class="text-gray-500 text-base md:text-lg mt-2">¿Lista para lo último? 💞</p>
     <span style="display:block; height:0.5em;"></span>
-    <p id="notaInstruccion" class="mt-2 text-sm text-gray-400 italic opacity-0 transition-opacity duration-1000 delay-500">
-      Si logras atinarle al "No" y abrir su sorpresa, ¡te ganas un matcha! 😝</p>
+    <p id="notaInstruccion" class="mt-2 text-sm text-gray-400 opacity-0 transition-opacity duration-1000 delay-500">
+      Si logras evitar el "No", el matcha es tuyo 😛</p>
   </header>
 
   <main class="flex-grow flex items-center justify-center px-4 py-8">
     <div class="relative text-center bg-white shadow-lg rounded-3xl p-6 sm:p-10 w-full max-w-2xl">
       <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6">¿Aún me quieres? ¿Me extrañas??</h2>
       <div class="flex justify-center gap-6 flex-wrap relative">
-        <button class = "font-semibold" onclick="mostrarPopup()" id="yesBtn">Sí</button>
-        <button class = "font-semibold" id="noBtn">No</button>
+        <button class="font-semibold" onclick="mostrarPopup()" id="yesBtn">Sí</button>
+        <button class="font-semibold" onclick="mostrarPopupNo()" id="noBtn">No</button>
       </div>
     </div>
   </main>
@@ -85,10 +81,6 @@
   </footer>
 
   <script>
-    const yesBtn = document.querySelector('#yesBtn');
-    const noBtn = document.querySelector('#noBtn');
-
-
     function mostrarPopup() {
       document.getElementById('popup').classList.remove('hidden');
     }
@@ -97,33 +89,36 @@
       document.getElementById('popup').classList.add('hidden');
     }
 
-    noBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    });
+    function mostrarPopupNo() {
+      const popup = document.getElementById('popupNo');
+      const video = document.getElementById('videoNo');
 
-    noBtn.addEventListener('mouseover', function () {
-      const vw = window.innerWidth - 100;
-      const vh = window.innerHeight - 100;
-      const randomX = Math.floor(Math.random() * vw);
-      const randomY = Math.floor(Math.random() * vh);
-      noBtn.style.left = `${randomX}px`;
-      noBtn.style.top = `${randomY}px`;
-    });
+      popup.classList.remove('hidden');
+
+      video.muted = false;
+      video.currentTime = 0;
+      video.play().catch((e) => {
+        console.log('Autoplay bloqueado. Esperando interacción del usuario.');
+      });
+    }
+
+    function cerrarPopupNo() {
+      const popup = document.getElementById('popupNo');
+      const video = document.getElementById('videoNo');
+
+      video.pause();
+      video.currentTime = 0;
+      popup.classList.add('hidden');
+    }
 
     window.addEventListener('load', () => {
-      noBtn.style.left = `50%`;
-      noBtn.style.top = `65%`;
-      noBtn.style.transform = `translate(-50%, -50%)`;
+      const nota = document.getElementById('notaInstruccion');
+      setTimeout(() => {
+        nota.classList.remove('opacity-0');
+        nota.classList.add('opacity-100');
+      }, 100);
     });
-
-    const nota = document.getElementById('notaInstruccion');
-    setTimeout(() => {
-    nota.classList.remove('opacity-0');
-    nota.classList.add('opacity-100');
-    }, 100);
   </script>
-
 
 </body>
 </html>
