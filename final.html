@@ -27,12 +27,6 @@
       border-radius: 850px;
     }
 
-    #yesBtn:hover {
-      transform: scale(1.1);
-      background-color: #fca5a5;
-      color: white;
-    }
-
     #noBtn {
       position: fixed;
       width: 90px;
@@ -41,6 +35,14 @@
       transition: top 0.1s ease, left 0.1s ease, transform 0.1s ease;
       cursor: not-allowed;
       z-index: 50;
+    }
+
+    #noBtn:focus,
+    #noBtn:active {
+        outline: none;
+        box-shadow: none;
+        background: white;
+        color: black;
     }
   </style>
 
@@ -80,15 +82,10 @@
     <p class="text-sm">Ya no hay más, se acabó. Pero mi amor por ti no tiene fin 🥰</p>
   </footer>
 
-  <audio id="boingSound" src="boing.mp3"></audio>
-
   <script>
     const yesBtn = document.querySelector('#yesBtn');
     const noBtn = document.querySelector('#noBtn');
 
-    const sound = document.getElementById('boingSound');
-    sound.currentTime = 0; // Reinicia por si se repite rápido
-    sound.play();
 
     function mostrarPopup() {
       document.getElementById('popup').classList.remove('hidden');
