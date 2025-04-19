@@ -138,44 +138,41 @@
     }
   </style>
 </head>
-<body class="bg-pink-100 text-gray-800 min-h-screen flex flex-col items-center justify-center">
+<body class="bg-pink-100 text-gray-800 min-h-screen flex flex-col items-center justify-between">
 
   <header class="w-full text-center py-6 bg-gray-50 shadow">
     <h1 class="text-xl font-bold">Carta Sorpresa</h1>
     <span style="display:block; height:0.5em;"></span>
     <p class="text-gray-500">Si abres esta carta, es bajo tu propio riesgo 💕</p>
   </header>
-    <br>
-    <br>
-
-  <div class="envelope" onclick="abrirCarta()">
-    <div class="flap">
-      <div class="seal">💗</div>
-      <div class="triangle"></div>
-    </div>
-
-    <div class="content">
-      <div class="message">¡SORPRESAAAAAAAA! <br>
-        Aquí puedes observar a dos jóvenes que se ven muy bonitos 🥺. <br>
-      ¿Tú que opinas?
+  
+  <main class="flex-grow flex justify-center items-center">
+    <div class="envelope" onclick="abrirCarta()">
+      <div class="flap">
+        <div class="seal">💗</div>
+        <div class="triangle"></div>
       </div>
-      <br>
 
-      <img src="imagenes/extra1.jpg" alt="Imagen" class="image" />
-      <br>
-      <br>
-      <br>
+      <div class="content">
+        <div class="message">¡SORPRESAAAAAAAA! <br>
+          Aquí puedes observar a dos jóvenes que se ven muy bonitos 🥺. <br>
+        ¿Tú que opinas?
+        </div>
+        <br>
+
+        <img src="imagenes/extra1.jpg" alt="Imagen" class="image" />
+        <br>
+        <br>
+        <br>
+
+      </div>
 
     </div>
-
-  </div>
-
-  </br>
-  </br>
+  </main>
 
   <footer class="w-full text-center py-4 bg-pink-200 text-gray-700 hover:underline">
     <a href="final.html" target="_blank" class="text-gray-500">
-    <p class="text-sm">Aún queda algo más. Dale clic, sé que quieres 😶</p>
+      <p class="text-sm">Aún queda algo más. Dale clic, sé que quieres 😶</p>
     </a>
   </footer>
 
@@ -193,4 +190,5 @@
   </script>
 
 </body>
+
 </html>
